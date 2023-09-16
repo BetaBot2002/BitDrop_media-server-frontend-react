@@ -1,0 +1,31 @@
+.View-Body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-grey);
+}
+
+.upper,.lower{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+    margin: 20px;
+}
+
+.type{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+    width: 20vw;
+    background-color: var(--theme-blue);
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 30px;
+    user-select: none;
+}
