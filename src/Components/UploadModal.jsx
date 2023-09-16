@@ -5,26 +5,37 @@ import CloseButton from '../assets/CloseButton.png'
 const UploadModal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
-    const [selectedFileName, setSelectedFileName] = useState('No file selected');
+    const [isDragging, setIsDragging] = useState(false)
+    const [selectedFile, setSelectedFile] = useState(null);
+
+    const handleDragOver = (e) => {
+        e.preventDefault()
+        setIsDragging(true)
+    }
+
+    const handleDrop = (e) => {
+        e.preventDefault();
+        setIsDragging(false);
+        const file = e.dataTransfer.files[0];
+        setSelectedFile(file);
+    };
 
     // Function to handle file selection
     const handleFileChange = (e) => {
-        const fileInput = e.target;
-        if (fileInput.files.length > 0) {
-            setSelectedFileName(`Selected File: ${fileInput.files[0].name}`);
-        } else {
-            setSelectedFileName('No file selected');
-        }
+        const file = e.target.files[0];
+        setSelectedFile(file);
     };
 
     return (
         <div className="upload-modal-overlay">
-            <div className="upload-modal-content">
+            <div className="upload-modal-content"
+                onDragOver={handleDragOver}
+                onDrop={handleDrop}>
                 <button className="upload-close-button" onClick={onClose}><img src={CloseButton} alt="" /></button>
                 <label htmlFor="fileInput" className="custom-file-input">
-                    Choose a File
+                    {!isDragging?`Choose a File`:`Drop the file`}
                 </label>
-                <p className="file-name">{selectedFileName}</p>
+                <p className="file-name">{selectedFile && selectedFile.name}{!selectedFile && `No File Selected`}</p>
                 <input
                     type="file"
                     id="fileInput"
