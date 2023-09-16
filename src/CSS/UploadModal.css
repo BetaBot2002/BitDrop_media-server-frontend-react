@@ -24,6 +24,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    row-gap: 10px;
   }
   
   .upload-close-button {
@@ -45,16 +46,42 @@
 
 /* Style the custom file input button */
 .custom-file-input {
-    background-color: #3498db;
+    background-color: var(--dark-grey);
     color: #fff;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 30px;
 }
 
 /* Style the selected file name display */
 .file-name {
-    margin-top: 10px;
+    margin: 10px;
     font-weight: bold;
+    text-align: center;
+    font-size: 18px;
 }
+
+.drag{
+    background-color: var(--theme-green);
+}
+
+.upload-button {
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding to your preference */
+    background-color: var(--dark-grey); /* Background color */
+    color: #fff; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Add pointer cursor on hover */
+    text-decoration: none; /* Remove underline for links (if used as a link) */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Font weight */
+  }
+  
+  /* Hover effect */
+  .upload-button:hover {
+    background-color: var(--light-grey); /* Change background color on hover */
+    /* You can add more styles for the hover effect if desired */
+  }

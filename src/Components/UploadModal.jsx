@@ -28,20 +28,21 @@ const UploadModal = ({ isOpen, onClose }) => {
 
     return (
         <div className="upload-modal-overlay">
-            <div className="upload-modal-content"
+            <div className={`upload-modal-content ${isDragging && `drag`}`}
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}>
                 <button className="upload-close-button" onClick={onClose}><img src={CloseButton} alt="" /></button>
                 <label htmlFor="fileInput" className="custom-file-input">
-                    {!isDragging?`Choose a File`:`Drop the file`}
+                    {isDragging?`Drop the file`:(selectedFile?`Choose Different File`:`Choose a File`)}
                 </label>
-                <p className="file-name">{selectedFile && selectedFile.name}{!selectedFile && `No File Selected`}</p>
                 <input
                     type="file"
                     id="fileInput"
                     style={{ display: 'none' }}
                     onChange={handleFileChange}
                 />
+                <p className="file-name">{selectedFile && selectedFile.name}{!selectedFile && `No File Selected`}</p>
+                {selectedFile && <button className='upload-button'>Upload</button>}
             </div>
         </div>
     );
