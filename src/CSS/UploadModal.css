@@ -9,9 +9,9 @@
     justify-content: center;
     align-items: center;
     z-index: 999;
-  }
-  
-  .upload-modal-content {
+}
+
+.upload-modal-content {
     background-color: var(--theme-blue);
     position: relative;
     padding: 25px;
@@ -25,22 +25,22 @@
     justify-content: center;
     align-items: center;
     row-gap: 10px;
-  }
-  
-  .upload-close-button {
+}
+
+.upload-close-button {
     position: absolute;
     top: 10px;
     right: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
-  }
-  
-  .upload-close-button > img{
-    width: 20px;
-  }
+}
 
-  input[type="file"] {
+.upload-close-button>img {
+    width: 20px;
+}
+
+input[type="file"] {
     display: none;
 }
 
@@ -63,25 +63,59 @@
     font-size: 18px;
 }
 
-.drag{
+.drag {
     background-color: var(--theme-green);
 }
 
 .upload-button {
     display: inline-block;
-    padding: 10px 20px; /* Adjust padding to your preference */
-    background-color: var(--dark-grey); /* Background color */
-    color: #fff; /* Text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Add pointer cursor on hover */
-    text-decoration: none; /* Remove underline for links (if used as a link) */
-    font-size: 16px; /* Font size */
-    font-weight: bold; /* Font weight */
-  }
-  
-  /* Hover effect */
-  .upload-button:hover {
-    background-color: var(--light-grey); /* Change background color on hover */
+    padding: 10px 20px;
+    /* Adjust padding to your preference */
+    background-color: var(--dark-grey);
+    /* Background color */
+    color: #fff;
+    /* Text color */
+    border: none;
+    /* Remove border */
+    border-radius: 5px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Add pointer cursor on hover */
+    text-decoration: none;
+    /* Remove underline for links (if used as a link) */
+    font-size: 16px;
+    /* Font size */
+    font-weight: bold;
+    /* Font weight */
+}
+
+/* Hover effect */
+.upload-button:hover {
+    background-color: var(--light-grey);
+    /* Change background color on hover */
     /* You can add more styles for the hover effect if desired */
-  }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Loading animation styles */
+.loader {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

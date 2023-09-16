@@ -15,18 +15,6 @@ const Home = () => {
     const closeModal = () => {
         setIsModalOpen(false);
     };
-
-    const handleFetch = async () => {
-        fetch('http://127.0.0.1:3000/file/getall', {
-            method: `POST`,
-            headers: {
-                'Authorization': `bearer ${await getAccessToken()}`
-            }
-        }).then(response => response.json())
-            .then((res) => {
-                console.log(res)
-            })
-    }
     return (
         <div className='Home-Body'>
             <div className='title'><img src={BitDrop} height={'100px'} /></div>
