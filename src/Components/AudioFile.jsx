@@ -8,7 +8,7 @@ import { getAccessToken } from '../Utility-Functions/LoginTokens'
 
 const AudioFile = ({ file }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [modalContent, setModalContent] = useState(null)
+    const [modalContent, setModalContent] = useState(<div class="loader"></div>)
 
     const openModal = (audioId) => {
         playAudio(audioId)
