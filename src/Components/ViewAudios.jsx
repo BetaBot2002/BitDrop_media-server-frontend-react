@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getAccessToken } from '../Utility-Functions/LoginTokens'
 import AudioFile from './AudioFile'
 import '../CSS/ViewAudios.css'
+import NavBar from './NavBar'
 
 const ViewAudios = () => {
     const [audioFiles, setAudioFiles] = useState([])
@@ -32,19 +33,22 @@ const ViewAudios = () => {
     }
 
     return (
-        <div className='ViewAudios-Body'>
-            <div className="AudioFilesCards">
-                {message !== '' || audioFiles.length === 0 ? <h1>No Files Found</h1> : null}
-                {
-                    audioFiles.map((file, index) => (
-                        // <div key={index}>{file.originalname}</div> 
-                        <AudioFile key={index} file={file} />
-                    ))
-                }
+        <>
+            <NavBar />
+            <div className='ViewAudios-Body'>
+                <div className="AudioFilesCards">
+                    {message !== '' || audioFiles.length === 0 ? <h1>No Files Found</h1> : null}
+                    {
+                        audioFiles.map((file, index) => (
+                            // <div key={index}>{file.originalname}</div> 
+                            <AudioFile key={index} file={file} />
+                        ))
+                    }
+
+                </div>
 
             </div>
-
-        </div>
+        </>
     )
 }
 

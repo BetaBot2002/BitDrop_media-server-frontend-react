@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getAccessToken } from '../Utility-Functions/LoginTokens'
+import NavBar from './NavBar'
 
 const ViewOthers = () => {
     const [otherFiles, setOtherFiles] = useState([])
@@ -30,17 +31,20 @@ const ViewOthers = () => {
     }
 
     return (
-        <div>
-            Hello
-            {message !== '' || otherFiles.length === 0 ? <div>No Files Found</div> : null}
+        <>
+            <NavBar />
+            <div>
+                Hello
+                {message !== '' || otherFiles.length === 0 ? <div>No Files Found</div> : null}
 
-            {
-                otherFiles.map((file, index) => (
-                    <div key={index}>{file.originalname}</div>
-                ))
-            }
+                {
+                    otherFiles.map((file, index) => (
+                        <div key={index}>{file.originalname}</div>
+                    ))
+                }
 
-        </div>
+            </div>
+        </>
     )
 }
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getAccessToken } from '../Utility-Functions/LoginTokens'
 import VideoFile from './VideoFile'
 import '../CSS/ViewVideos.css'
+import NavBar from './NavBar'
 const ViewVideos = () => {
     const [videoFiles, setVideoFiles] = useState([])
     const [message, setMessage] = useState('')
@@ -31,18 +32,21 @@ const ViewVideos = () => {
     }
 
     return (
-        <div className='ViewVideos-Body'>
-            <div className="VideoFilesCards">
-                {message !== '' || videoFiles.length === 0 ? <h1>No Files Found</h1> : null}
-                {
-                    videoFiles.map((file, index) => (
-                        <VideoFile key={index} file={file} />
-                    ))
-                }
+        <>
+            <NavBar />
+            <div className='ViewVideos-Body'>
+                <div className="VideoFilesCards">
+                    {message !== '' || videoFiles.length === 0 ? <h1>No Files Found</h1> : null}
+                    {
+                        videoFiles.map((file, index) => (
+                            <VideoFile key={index} file={file} />
+                        ))
+                    }
+
+                </div>
 
             </div>
-
-        </div>
+        </>
     )
 }
 

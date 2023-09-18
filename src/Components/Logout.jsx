@@ -1,7 +1,7 @@
 import React from 'react'
 import { getRefreshToken, setAccessToken, setRefreshToken } from '../Utility-Functions/LoginTokens'
 import { useNavigate } from 'react-router-dom'
-
+import '../CSS/LogoutButton.css'
 const Logout = () => {
     const navigate=useNavigate()
     const handleLogout=()=>{
@@ -23,7 +23,7 @@ const Logout = () => {
 
     return (
         <>
-            <button onClick={handleLogout}>Log Out</button>
+            <button onClick={handleLogout} className='LogoutButton'>Log Out</button>
         </>
     )
 }

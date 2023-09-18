@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getAccessToken } from '../Utility-Functions/LoginTokens'
 import ImageFile from './ImageFile'
 import '../CSS/ViewImages.css'
+import NavBar from './NavBar'
 
 const ViewImages = () => {
     const [imageFiles, setImageFiles] = useState([])
@@ -32,18 +33,21 @@ const ViewImages = () => {
     }
 
     return (
-        <div className='ViewImages-Body'>
-            <div className="ImageFilesCards">
-                {message !== '' || imageFiles.length === 0 ? <h1>No Files Found</h1> : null}
-                {
-                    imageFiles.map((file, index) => (
-                        <ImageFile key={index} file={file} />
-                    ))
-                }
+        <>
+            <NavBar />
+            <div className='ViewImages-Body'>
+                <div className="ImageFilesCards">
+                    {message !== '' || imageFiles.length === 0 ? <h1>No Files Found</h1> : null}
+                    {
+                        imageFiles.map((file, index) => (
+                            <ImageFile key={index} file={file} />
+                        ))
+                    }
+
+                </div>
 
             </div>
-
-        </div>
+        </>
     )
 }
 export default ViewImages

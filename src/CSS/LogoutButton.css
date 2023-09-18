@@ -1,0 +1,14 @@
+.LogoutButton{
+    background-color: #0074D9; /* Blue color for the button */
+    color: #ffffff; /* White text color */
+    padding: 12px 24px; /* Adjust padding for the button */
+    font-size: 16px; /* Font size */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* Remove border */
+    text-transform: uppercase; /* Uppercase text */
+    transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.LogoutButton:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}

@@ -5,6 +5,7 @@ import '../CSS/Home.css'
 import BitDrop from '../assets/BitDrop.png'
 import { Link } from 'react-router-dom'
 import UploadModal from './UploadModal'
+import NavBar from './NavBar'
 const Home = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -16,16 +17,20 @@ const Home = () => {
         setIsModalOpen(false);
     };
     return (
-        <div className='Home-Body'>
-            <div className='title'><img src={BitDrop} height={'100px'} /></div>
-            <div className="main">
-                <div className="option"><Link to='view-files' className='link'>View Files</Link></div>
-                <div className="option"><div onClick={()=> openModal()} className='link'>Upload File</div></div>
+        <>
+            <NavBar />
+            <div className='Home-Body'>
+
+                <div className='title'><img src={BitDrop} height={'100px'} /></div>
+                <div className="main">
+                    <div className="option"><Link to='view-files' className='link'>View Files</Link></div>
+                    <div className="option"><div onClick={() => openModal()} className='link'>Upload File</div></div>
+                </div>
+                {/* <button onClick={handleFetch}>Fetch</button> */}
+                <UploadModal isOpen={isModalOpen} onClose={closeModal} />
             </div>
-            {/* <button onClick={handleFetch}>Fetch</button> */}
-            <UploadModal isOpen={isModalOpen} onClose={closeModal} />
-            <Logout />
-        </div>
+        </>
+
     )
 }
 
