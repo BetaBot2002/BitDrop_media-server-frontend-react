@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAccessToken } from '../Utility-Functions/LoginTokens'
-
+import VideoFile from './VideoFile'
+import '../CSS/ViewVideos.css'
 const ViewVideos = () => {
     const [videoFiles, setVideoFiles] = useState([])
     const [message, setMessage] = useState('')
@@ -30,15 +31,16 @@ const ViewVideos = () => {
     }
 
     return (
-        <div>
-            Hello
-            {message !== '' || videoFiles.length === 0 ? <div>No Files Found</div> : null}
+        <div className='ViewVideos-Body'>
+            <div className="VideoFilesCards">
+                {message !== '' || videoFiles.length === 0 ? <h1>No Files Found</h1> : null}
+                {
+                    videoFiles.map((file, index) => (
+                        <VideoFile key={index} file={file} />
+                    ))
+                }
 
-            {
-                videoFiles.map((file, index) => (
-                    <div key={index}>{file.originalname}</div>
-                ))
-            }
+            </div>
 
         </div>
     )

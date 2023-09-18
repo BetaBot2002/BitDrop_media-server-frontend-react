@@ -1,0 +1,48 @@
+.VideoFile-Body{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 25vw;
+    aspect-ratio: 3/1;
+    padding: 15px;
+    background-color: var(--theme-green);
+    color: black;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    cursor: pointer;
+}
+
+.FileIcon{
+    width: 18%;
+}
+
+.FileDetails{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 10px;
+
+}
+
+.PlayButton{
+    width: 100px;
+    height: 30px;
+    background-color: var(--dark-grey);
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.PlayButton:hover{
+    background-color: var(--light-grey);
+}
+
+.VideoFileIcon{
+    width: 100%;
+    filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset)
+}
