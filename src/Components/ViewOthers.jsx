@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getAccessToken } from '../Utility-Functions/LoginTokens'
+import '../CSS/ViewOthers.css'
 import NavBar from './NavBar'
+import OtherFile from './OtherFile'
 
 const ViewOthers = () => {
     const [otherFiles, setOtherFiles] = useState([])
@@ -33,15 +35,16 @@ const ViewOthers = () => {
     return (
         <>
             <NavBar />
-            <div>
-                Hello
-                {message !== '' || otherFiles.length === 0 ? <div>No Files Found</div> : null}
+            <div className='ViewOthers-Body'>
+                <div className="OtherFilesCards">
+                    {message !== '' || otherFiles.length === 0 ? <h1>No Files Found</h1> : null}
+                    {
+                        otherFiles.map((file, index) => (
+                            <OtherFile key={index} file={file} />
+                        ))
+                    }
 
-                {
-                    otherFiles.map((file, index) => (
-                        <div key={index}>{file.originalname}</div>
-                    ))
-                }
+                </div>
 
             </div>
         </>
