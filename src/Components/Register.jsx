@@ -1,17 +1,16 @@
-import { useState } from "react"
-import { setAccessToken, setRefreshToken } from "../Utility-Functions/LoginTokens"
-import { Link, useNavigate } from "react-router-dom"
-import '../CSS/Login.css'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import '../CSS/Register.css'
 import BitDrop from '../assets/BitDrop.png'
 
-const Login = () => {
+const Register = () => {
     const navigate = useNavigate()
     const [username, setUsername] = useState(``)
     const [password, setPassword] = useState(``)
 
-    const handleLogin = () => {
+    const handleRegister = () => {
         console.log(username, password)
-        fetch('http://127.0.0.1:3000/user/login', {
+        fetch('http://127.0.0.1:3000/user/register', {
             method: `POST`,
             headers: {
                 'Content-Type': 'application/json'
@@ -24,25 +23,23 @@ const Login = () => {
         }).then(response => response.json())
             .then((res) => {
                 if (!res.message) {
-                    setAccessToken(res.accsessToken)
-                    setRefreshToken(res.refreshToken)
                     navigate('/')
                 } else {
-                    alert('Wrong Username/Password')
+                    alert('User Already Exist')
                 }
             })
     }
     return (
         <>
-            <div className="Login-Body">
+            <div className="Register-Body">
                 <img src={BitDrop} alt="" />
-                <div className="Login-Wrapper">
-                    <div className="Login-Container">
+                <div className="Register-Wrapper">
+                    <div className="Register-Container">
                         {/* <h2>Log In</h2> */}
                         <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} placeholder="Enter Your Username" />
                         <input type="text" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Enter Your Password" />
-                        <button onClick={handleLogin}>Log In</button>
-                        <p>Don't have an account? <Link to='/register' className="Login-Link">Register</Link></p>
+                        <button onClick={handleRegister}>Register</button>
+                        <p>Already have an account? <Link to='/login' className="Register-Link">Login</Link></p>
                     </div>
                 </div>
 
@@ -51,4 +48,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register

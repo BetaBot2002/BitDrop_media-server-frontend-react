@@ -10,13 +10,14 @@ import ViewAudios from './Components/ViewAudios'
 import ViewVideos from './Components/ViewVideos'
 import ViewImages from './Components/ViewImages'
 import ViewOthers from './Components/ViewOthers'
-import AudioFile from './Components/AudioFile'
+import Register from './Components/Register'
 
 function App() {
   return (
     <>
       <Routes>
         <Route path='/' element={<Navigate to='/home'/>} />
+        <Route path='/register' element={<NotLoggedIn><Register /></NotLoggedIn>} />
         <Route path='/login' element={<NotLoggedIn><Login /></NotLoggedIn>} />
         <Route path='/home' element={<LoggedIn><Home /></LoggedIn>} />
         <Route path='/home/view-files' element={<LoggedIn><View/></LoggedIn>} />
