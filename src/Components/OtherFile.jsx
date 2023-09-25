@@ -6,6 +6,8 @@ import { getDateFormat } from '../Utility-Functions/DateFunctions'
 import OtherModal from './OtherModal'
 
 import { getAccessToken } from '../Utility-Functions/LoginTokens'
+import EditFile from './EditFile'
+import DeleteFile from './DeleteFile'
 
 const OtherFile = ({ file }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -55,6 +57,8 @@ const OtherFile = ({ file }) => {
                 <h3>{`${file.originalname}.${file.extension}`}</h3>
                 <h5>{`${getDateFormat(new Date(file.createdAt))}`}</h5>
                 <button className='PlayButton' onClick={() => openModal(file.fileid)}>View</button>
+                <EditFile fileid={file.fileid}/>
+                <DeleteFile fileid={file.fileid}/>
             </div>
             <OtherModal isOpen={isModalOpen} onClose={closeModal}>
                 {modalContent}

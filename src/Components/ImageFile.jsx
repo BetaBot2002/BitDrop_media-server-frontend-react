@@ -4,6 +4,8 @@ import '../CSS/ImageFile.css'
 import ImageFileIcon from '../assets/ImageFileIcon.png'
 import { getDateFormat } from '../Utility-Functions/DateFunctions'
 import ImageModal from './ImageModal';
+import EditFile from './EditFile';
+import DeleteFile from './DeleteFile';
 
 const ImageFile = ({file}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,6 +48,8 @@ const ImageFile = ({file}) => {
                 <h3>{`${file.originalname}.${file.extension}`}</h3>
                 <h5>{`${getDateFormat(new Date(file.createdAt))}`}</h5>
                 <button className='PlayButton' onClick={() => openModal(file.fileid)}>View</button>
+                <EditFile fileid={file.fileid}/>
+                <DeleteFile fileid={file.fileid}/>
             </div>
             <ImageModal isOpen={isModalOpen} onClose={closeModal}>
                 {modalContent}

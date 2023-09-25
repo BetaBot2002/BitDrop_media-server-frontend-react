@@ -24,6 +24,8 @@
     flex-direction: column;
     justify-content: space-between;
     row-gap: 10px;
+    position: relative;
+    isolation: isolate;
 
 }
 

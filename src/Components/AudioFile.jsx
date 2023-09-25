@@ -5,6 +5,8 @@ import { getDateFormat } from '../Utility-Functions/DateFunctions'
 import AudioModal from './AudioModal'
 
 import { getAccessToken } from '../Utility-Functions/LoginTokens'
+import EditFile from './EditFile'
+import DeleteFile from './DeleteFile'
 
 const AudioFile = ({ file }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,6 +52,8 @@ const AudioFile = ({ file }) => {
                 <h3>{`${file.originalname}.${file.extension}`}</h3>
                 <h5>{`${getDateFormat(new Date(file.createdAt))}`}</h5>
                 <button className='PlayButton' onClick={() => openModal(file.fileid)}>Play</button>
+                <EditFile fileid={file.fileid}/>
+                <DeleteFile fileid={file.fileid}/>
             </div>
             <AudioModal isOpen={isModalOpen} onClose={closeModal}>
                 {modalContent}

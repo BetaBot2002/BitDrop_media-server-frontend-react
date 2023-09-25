@@ -1,0 +1,16 @@
+.EditFileButton{
+    position: absolute;
+    right: 35px;
+    bottom: -5px;
+    width: 40px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.EditFileButton > img{
+    width: 100%;
+}

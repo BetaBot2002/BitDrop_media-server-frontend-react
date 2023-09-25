@@ -1,0 +1,16 @@
+.DeleteFileButton{
+    position: absolute;
+    right: 0px;
+    bottom: -4px;
+    width: 40px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.DeleteFileButton > img{
+    width: 100%;
+}
