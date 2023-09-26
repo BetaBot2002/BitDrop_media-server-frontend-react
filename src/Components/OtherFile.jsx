@@ -8,10 +8,23 @@ import OtherModal from './OtherModal'
 import { getAccessToken } from '../Utility-Functions/LoginTokens'
 import EditFile from './EditFile'
 import DeleteFile from './DeleteFile'
+import EditFileIcon from '../assets/EditFileIcon.png'
+import '../CSS/EditFile.css'
+import EditModal from './EditModal';
 
 const OtherFile = ({ file }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState(<div className="loader"></div>)
+
+    const [editOpen, setEditOpen] = useState(false);
+
+    const openEditModal = () => {
+        setEditOpen(true);
+    };
+
+    const closeEditModal = () => {
+        setEditOpen(false);
+    };
 
     const openModal = (otherId) => {
         playOther(otherId)
@@ -56,13 +69,19 @@ const OtherFile = ({ file }) => {
             <div className="FileDetails">
                 <h3>{`${file.originalname}.${file.extension}`}</h3>
                 <h5>{`${getDateFormat(new Date(file.createdAt))}`}</h5>
-                <button className='PlayButton' onClick={() => openModal(file.fileid)}>View</button>
-                <EditFile fileid={file.fileid}/>
-                <DeleteFile fileid={file.fileid}/>
+                <div className="button-container">
+                    <button className='PlayButton' onClick={() => openModal(file.fileid)}>View</button>
+                    <div className="edit-delete">
+                        <button className='EditFileButton' onClick={openEditModal}><img src={EditFileIcon} alt="" /></button>
+                        <DeleteFile fileid={file.fileid} />
+                    </div>
+                </div>
             </div>
             <OtherModal isOpen={isModalOpen} onClose={closeModal}>
                 {modalContent}
             </OtherModal>
+            <EditModal editOpen={editOpen} closeEdit={closeEditModal} fileid={file.fileid}>
+            </EditModal>
         </div>
     )
 }

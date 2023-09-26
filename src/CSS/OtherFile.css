@@ -24,9 +24,21 @@
     flex-direction: column;
     justify-content: space-between;
     row-gap: 10px;
-    position: relative;
-    isolation: isolate;
+    /* position: relative;
+    isolation: isolate; */
 
+}
+
+.button-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit-update{
+    display: flex;
 }
 
 .PlayButton{
