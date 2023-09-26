@@ -10,7 +10,7 @@ import DeleteFile from './DeleteFile'
 
 const AudioFile = ({ file }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [modalContent, setModalContent] = useState(<div class="loader"></div>)
+    const [modalContent, setModalContent] = useState(<div className="loader"></div>)
 
     const openModal = (audioId) => {
         playAudio(audioId)
