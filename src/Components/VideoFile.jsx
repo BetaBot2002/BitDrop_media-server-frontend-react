@@ -35,7 +35,6 @@ const VideoFile = ({ file }) => {
     };
 
     const playVideo = async (videoId) => {
-        console.log(`http://127.0.0.1:3000/file/getfile/${videoId}`)
         fetch(`http://127.0.0.1:3000${file.fileurl}`, {
             method: `POST`,
             headers: {
