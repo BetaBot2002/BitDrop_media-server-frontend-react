@@ -40,7 +40,7 @@ const Login = () => {
                     <div className="Login-Container">
                         {/* <h2>Log In</h2> */}
                         <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} placeholder="Enter Your Username" />
-                        <input type="text" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Enter Your Password" />
+                        <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Enter Your Password" />
                         <button onClick={handleLogin}>Log In</button>
                         <p>Don't have an account? <Link to='/register' className="Login-Link">Register</Link></p>
                     </div>

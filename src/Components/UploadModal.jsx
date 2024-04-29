@@ -70,7 +70,7 @@ const UploadModal = ({ isOpen, onClose }) => {
             {
                 uploading &&
                 <div className='upload-modal-content'>
-                    <div class="loader"></div>
+                    <div className="loader"></div>
                 </div>
             }
         </div>

@@ -37,7 +37,7 @@ const Register = () => {
                     <div className="Register-Container">
                         {/* <h2>Log In</h2> */}
                         <input type="text" onChange={(e) => setUsername(e.target.value)} value={username} placeholder="Enter Your Username" />
-                        <input type="text" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Enter Your Password" />
+                        <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Enter Your Password" />
                         <button onClick={handleRegister}>Register</button>
                         <p>Already have an account? <Link to='/login' className="Register-Link">Login</Link></p>
                     </div>
